@@ -1,0 +1,55 @@
+<%- include('partials/header2'); -%>
+<a href="/logout" class="welcome-button welcome-logout">Logout</a>
+<div class="dropdown">
+  <button
+    class="btn btn-secondary dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    --Select Stocks --
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="/welcome/tatasteel">TATASTEEL</a></li>
+    <li><a class="dropdown-item" href="/welcome/reliance">RELIANCE</a></li>
+    <li><a class="dropdown-item" href="/welcome/cipla">CIPLA</a></li>
+    <li><a class="dropdown-item" href="/welcome/eichermot">EICHERMOT</a></li>
+    <li><a class="dropdown-item" href="/welcome/ashokley">ASHOKLEY</a></li>
+  </ul>
+</div>
+
+<a class="welcome-button" href="/welcome">NSE</a>
+<a class="welcome-button" href="/welcome/bse">BSE</a>
+<!-- <h1>Welcome</h1> -->
+<div class="welcome-main">
+  <div class="welcome-stock">
+    <h2 class="welcome-title"><%= today_price %></h2>
+    <h3 id="gain"><%= today_gain %> (<%= today_gain_per %>%)</h3>
+    <h4 class="welcome-date"><%= today_date %></h4>
+    <div>
+      <table class="welcome-table">
+        <tr>
+          <td>Open : <%= today_open %></td>
+        </tr>
+        <tr>
+          <td>Previous Close : <%= yesterday_close %></td>
+        </tr>
+        <tr>
+          <td>Day High : <%= today_high %></td>
+        </tr>
+        <tr>
+          <td>Day Low : <%= today_low %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="stock-graph">
+    <iframe width="900" height="500" frameborder="0" scrolling="no" src="//plotly.com/~Tushar1/0.embed"></iframe>
+  </div>
+</div>
+<%- include('partials/footer'); -%>
+
+
+<script>
+  document.getElementById("gain").style.setProperty("color", "<%=gain_color%>");
+</script>
